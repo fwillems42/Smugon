@@ -1,0 +1,4 @@
+First You need to use .\smugon_keygen to generate a key by providing a key_size (usually 16) and an output file
+Then, You need to use .\smugon_sender to send the file by providing the targeted file's file_path and the key_file
+Don't forget to capture the traffic on the receiver side using Wireshark
+Finally, You need to use .\smugon_parser to parse the pcap file and decrypt it's content using the key_file
