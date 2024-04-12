@@ -32,15 +32,17 @@ def read_content(file_path: str) -> bytes:
 
 
 def main():
-    assert len(sys.argv) > 2, f"Usage: python {sys.argv[0]} <PCAP_FILE> <KEY>"
+    assert len(sys.argv) > 3, f"Usage: python {sys.argv[0]} <PCAP_FILE> <KEY> <OUT_FILE>"
 
     pcap_file = sys.argv[1]
     key_file = sys.argv[2]
+    out_file = sys.argv[3]
 
     key = read_content(key_file)
     decrypted = decrypt_content(pcap_file, key)
-    print(decrypted)
 
+    with open(out_file, 'wb') as f:
+        f.write(decrypted)
 
 if __name__ == '__main__':
     main()
